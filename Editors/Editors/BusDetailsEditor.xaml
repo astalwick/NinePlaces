@@ -1,0 +1,69 @@
+﻿<Editors:BaseDetailsEditor
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Editors="clr-namespace:Editors"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="Editors.BusDetailsEditor"
+    xmlns:input="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input"
+	xmlns:BasicEditors="clr-namespace:BasicEditors" xmlns:Localization="clr-namespace:Localization"
+    ShadingGradient="{StaticResource TravelIconEditorGradient}"
+    BackgroundGradient="{StaticResource TravelIconGradient}">
+
+
+    <Editors:BaseDetailsEditor.Resources>
+        <ResourceDictionary Source="Resources.xaml"/>
+    </Editors:BaseDetailsEditor.Resources>
+
+    <sdk:TabControl Height="Auto" Style="{StaticResource DetailsEditorTabStyle}" BorderThickness="0" Background="{StaticResource TravelTabControlGradient}">
+        <Editors:MyTabItem Header="ITINERARY" Style="{StaticResource DetailsEditorTabItemStyle}" BorderBrush="#7FFFFFFF" BorderThickness="1" Background="{StaticResource TravelEditorTabItemGradient}">
+            <Grid x:Name="LayoutRoot" Width="Auto" VerticalAlignment="Top" Margin="4,4,4,4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition />            		
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"  />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+		<TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding Path=StringLibrary.DepartureTime, Source={StaticResource LocalizedStrings}}" Style="{StaticResource EditorTextBlockStyle}" Width="Auto" Height="16" />
+                <BasicEditors:DateSelection  IsEnabled="{Binding WritePermitted, Mode=OneTime}" SelectedDateTime="{Binding LocalDockTime, Mode=TwoWay}" Grid.Column="1" Grid.Row="0" />
+
+                <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding Path=StringLibrary.DepartureCity, Source={StaticResource LocalizedStrings}}" Style="{StaticResource EditorTextBlockStyle}" Width="Auto" Height="16"/>
+                <input:AutoCompleteBox  IsEnabled="{Binding WritePermitted, Mode=OneTime}" x:Name="tbDepartureCity" Grid.Column="1" Grid.Row="1"  ValueMemberBinding="{Binding CityName}" SelectedItem="{Binding SelectedDeparture, Mode=TwoWay}" Text="{Binding Path=DepartureCity, Mode=TwoWay}"  Style="{StaticResource CityAutoCompleteStyle}" ItemTemplate="{StaticResource CityAutoCompleteDataTemplate}" TextBoxStyle="{StaticResource EditorTextBoxStyle}"  IsTextCompletionEnabled="False"/>
+                
+                <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Text="{Binding Path=StringLibrary.DepartureAddress, Source={StaticResource LocalizedStrings}}" Style="{StaticResource EditorTextBlockStyle}" x:Name="textBlock" Width="Auto" Height="16"/>
+                <BasicEditors:AddressControl  IsEnabled="{Binding WritePermitted, Mode=OneTime}" x:Name="DepartureAddrCtrl" Street="{Binding DepartureStreetAddress, Mode=TwoWay}" City="{Binding DepartureCity, Mode=TwoWay}" Country="{Binding DepartureCountry, Mode=TwoWay}" PostalCode="{Binding DeparturePostalCode, Mode=TwoWay}" Province="{Binding DepartureProvince, Mode=TwoWay}" Grid.Column="0"  Grid.ColumnSpan="2" Grid.Row="3" Height="Auto" VerticalAlignment="Stretch" Width="Auto" />
+
+                <TextBlock Grid.Column="0" Grid.Row="5" Text="{Binding Path=StringLibrary.ArrivalTime, Source={StaticResource LocalizedStrings}}" Style="{StaticResource EditorTextBlockStyle}" Width="Auto" Height="16" />
+                <BasicEditors:DateSelection  IsEnabled="{Binding WritePermitted, Mode=OneTime}" SelectedDateTime="{Binding LocalEndTime, Mode=TwoWay}" Grid.Column="1" Grid.Row="5" />
+
+                <TextBlock Grid.Column="0" Grid.Row="6" Text="{Binding Path=StringLibrary.DestinationCity, Source={StaticResource LocalizedStrings}}" Style="{StaticResource EditorTextBlockStyle}" Width="Auto" Height="16"/>
+
+                <input:AutoCompleteBox  IsEnabled="{Binding WritePermitted, Mode=OneTime}" x:Name="tbDestinationCity" Grid.Column="1" Grid.Row="6"  Text="{Binding Path=Arrival.CityName}" ValueMemberPath="CityName" SelectedItem="{Binding SelectedArrival,Mode=TwoWay}" Style="{StaticResource CityAutoCompleteStyle}" ItemTemplate="{StaticResource CityAutoCompleteDataTemplate}" TextBoxStyle="{StaticResource EditorTextBoxStyle}"  IsTextCompletionEnabled="False"/>
+                
+                
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="7" Text="{Binding Path=StringLibrary.DestinationAddress, Source={StaticResource LocalizedStrings}}" Style="{StaticResource EditorTextBlockStyle}" x:Name="textBlock1" Width="Auto" Height="16"/>
+
+                <BasicEditors:AddressControl  IsEnabled="{Binding WritePermitted, Mode=OneTime}" x:Name="DestinationAddrCtrl" TimeZoneID="{Binding TimeZoneID, Mode=TwoWay}" Street="{Binding ArrivalStreetAddress, Mode=TwoWay}" City="{Binding ArrivalCity, Mode=TwoWay}" Country="{Binding ArrivalCountry, Mode=TwoWay}" PostalCode="{Binding ArrivalPostalCode, Mode=TwoWay}" Province="{Binding ArrivalProvince, Mode=TwoWay}" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="8" Height="Auto" VerticalAlignment="Stretch" Width="Auto" />
+        
+	</Grid>
+    </Editors:MyTabItem>
+        <Editors:MyTabItem Header="NOTES" Style="{StaticResource DetailsEditorTabItemStyle}" BorderBrush="Transparent" Background="{StaticResource TravelEditorTabItemGradient}">
+            <Grid VerticalAlignment="Top">
+                <TextBox  IsEnabled="{Binding WritePermitted, Mode=OneTime}" x:Name="tbNotes" Width="Auto" Text="{Binding Notes, Mode=TwoWay}" Style="{StaticResource EditorTextBoxStyle}" Height="200" AcceptsReturn="True" TextWrapping="Wrap" />
+            </Grid>
+    </Editors:MyTabItem>
+    </sdk:TabControl>
+</Editors:BaseDetailsEditor>

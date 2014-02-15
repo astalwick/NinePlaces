@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" > 
+ 
+<head> 
+    <title>NinePlaces</title> 
+    <style type="text/css"> 
+    html, body {
+	    height: 100%;
+	    overflow: auto;
+    }
+    body {
+	    padding: 0;
+	    margin: 0;
+    }
+    #silverlightControlHost {
+	    height: 100%;
+	    text-align:center;
+    }
+    </style> 
+    <script type="text/javascript" src="Silverlight.js"></script> 
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-19913826-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+<script type="text/javascript" src="time-tracker.js"></script> 
+    <script type="text/javascript">
+
+
+
+        window.onbeforeunload = confirmExit;
+        var oInitTimeTracker = new TimeTracker();
+        oInitTimeTracker._setHistogramBuckets([50, 100, 250, 500, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 15000, 20000]);
+        oInitTimeTracker._recordStartTime();
+
+        if (document.images) {
+            normal = new Image;
+            hover = new Image;
+            pressed = new Image;
+
+            normal.src = 'Images/InstallSilverlight_normal.jpg';
+            hover.src = 'Images/InstallSilverlight_hover.jpg';
+            pressed.src = 'Images/InstallSilverlight_pressed.jpg';
+        }
+
+        function slTrackEvent(arg1, arg2, arg3, arg4) {
+
+            if (arg3 && arg4) {
+                _gaq.push(['_trackEvent', arg1, arg2, arg3, arg4]);
+            }
+            else if (arg3) {
+                _gaq.push(['_trackEvent', arg1, arg2, arg3]);
+            }
+            else {
+                _gaq.push(['_trackEvent', arg1, arg2]);
+            }
+        }
+
+        function slTrackPageView(arg1) {
+            _gaq.push(['_trackPageview', arg1]);
+        }
+
+        function initCompleted() {
+            if (oInitTimeTracker) {
+
+                oInitTimeTracker._recordEndTime();
+                oInitTimeTracker._track();
+            }
+        }
+        function onSilverlightError(sender, args) {
+            var appSource = "";
+            if (sender != null && sender != 0) {
+                appSource = sender.getHost().Source;
+            }
+
+            var errorType = args.ErrorType;
+            var iErrorCode = args.ErrorCode;
+
+            if (errorType == "ImageError" || errorType == "MediaError") {
+                return;
+            }
+
+            var errMsg = "Unhandled Error in Silverlight Application " + appSource + "\n";
+
+            errMsg += "Code: " + iErrorCode + "    \n";
+            errMsg += "Category: " + errorType + "       \n";
+            errMsg += "Message: " + args.ErrorMessage + "     \n";
+
+            if (errorType == "ParserError") {
+                errMsg += "File: " + args.xamlFile + "     \n";
+                errMsg += "Line: " + args.lineNumber + "     \n";
+                errMsg += "Position: " + args.charPosition + "     \n";
+            }
+            else if (errorType == "RuntimeError") {
+                if (args.lineNumber != 0) {
+                    errMsg += "Line: " + args.lineNumber + "     \n";
+                    errMsg += "Position: " + args.charPosition + "     \n";
+                }
+                errMsg += "MethodName: " + args.methodName + "     \n";
+            }
+
+            throw new Error(errMsg);
+        }
+
+        function confirmExit(e){
+            var control = document.getElementById('silverlightPlugin');
+            if (control.Content.SLApp.IsModified) 
+            {
+                if (!e)
+                    e = window.event;
+
+                //e.cancelBubble is supported by IE - this will kill the bubbling process.
+                e.cancelBubble = true;
+                e.returnValue = 'There is currently unsaved information pending.  You may lose recent changes by navigating away.\r\n\r\nAlso note that you must be signed in for your vacation to be saved!'; //This is displayed on the dialog
+
+                //e.stopPropagation works in Firefox.
+                if (e.stopPropagation) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                }
+            }
+        }
+    </script> 
+</head> 
+<body> 
+    <form id="form1" runat="server" style="height:100%"> 
+    <div id="silverlightControlHost"> 
+        <object id="silverlightPlugin"  data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="100%" height="100%"> 
+		  <param name="source" value="ClientBin/NinePlaces.xap"/> 
+		  <param name="onError" value="onSilverlightError" /> 
+		  <param name="background" value="white" /> 
+		  <param name="minRuntimeVersion" value="4.0.41108.0" />
+		  <param name="autoUpgrade" value="true" /> 
+<script type="text/javascript" >
+    if (document.images) {
+        normal = new Image;
+        hover = new Image;
+        pressed = new Image;
+
+        normal.src = 'Images/InstallSilverlight_normal.jpg';
+        hover.src = 'Images/InstallSilverlight_hover.jpg';
+        pressed.src = 'Images/InstallSilverlight_pressed.jpg';
+    }
+    if (!Silverlight.isInstalled("4.0.41108.0")) {
+
+        Silverlight.WaitForInstallCompletion();
+    }
+</script>
+
+<BR><BR>
+
+<table height="100%" width="100%" cellpadding="0" cellspacing="0">
+	<tr>
+		<td><center><img src="Images/InstallSilverlight_top.jpg" border=0 /></center></td>
+	</tr>
+	<tr>
+		<td><center>
+			<a href="http://go.microsoft.com/fwlink/?LinkID=149156" style="text-decoration:none" onmouseover="document.InstallButton.src=hover.src" onmouseout="document.InstallButton.src=normal.src" onclick="document.InstallButton.src=pressed.src"><img name="InstallButton" src="Images/InstallSilverlight_normal.jpg" border=0 /></a></center></td>
+	</tr>
+	<tr>
+		<td><center><img src="Images/InstallSilverlight_bottom.jpg" border=0 /></center></td>
+	</tr>
+</table>
+
+
+	    </object><iframe id="_sl_historyFrame" style="visibility:hidden;height:0px;width:0px;border:0px"></iframe></div> 
+    </form> 
+</body> 
+</html> 

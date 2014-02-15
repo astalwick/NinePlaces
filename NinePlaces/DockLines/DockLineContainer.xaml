@@ -1,0 +1,19 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:NinePlaces="clr-namespace:NinePlaces"
+	x:Class="NinePlaces.DockLineContainer"
+    xmlns:Localization="clr-namespace:NinePlaces.Localization"
+	d:DesignWidth="548" d:DesignHeight="192">
+    
+
+    
+    <StackPanel x:Name="LayoutRoot" VerticalAlignment="Bottom" Height="192">
+		<NinePlaces:DockLine Canvas.ZIndex="1" Class="Transportation" DockRegionMargin="16.0" Color="{StaticResource TravelIconColor}" Text="{Binding Path=StringLibrary.Transportation, Source={StaticResource LocalizedStrings}}"/>
+		<NinePlaces:DockLine Canvas.ZIndex="1" Class="Lodging" DockRegionMargin="16.0" Color="{StaticResource LodgingIconColor}" Text="{Binding Path=StringLibrary.Lodging, Source={StaticResource LocalizedStrings}}"/> 
+		<NinePlaces:DockLine Canvas.ZIndex="1" Class="Activity" DockRegionMargin="16.0" Color="{StaticResource ActivityIconColor}" Text="{Binding Path=StringLibrary.Activities, Source={StaticResource LocalizedStrings}}"/>
+	</StackPanel>
+</UserControl>

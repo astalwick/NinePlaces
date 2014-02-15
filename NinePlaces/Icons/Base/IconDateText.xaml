@@ -1,0 +1,41 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:NinePlaces="clr-namespace:NinePlaces"
+	mc:Ignorable="d"
+	x:Class="NinePlaces.IconHoverText"
+	d:DesignWidth="70" d:DesignHeight="50" xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows">
+    
+    <UserControl.Resources>
+        <NinePlaces:HoverDateTimeConverter x:Key="HoverDateTimeConverter" />
+    </UserControl.Resources>
+    
+	<Border x:Name="LayoutRoot" Height="Auto" Width="Auto" CornerRadius="5" Opacity="0" Background="{StaticResource GenericIconGradient}">
+		<Border.Effect>
+            <DropShadowEffect Opacity="0.32" BlurRadius="4" ShadowDepth="4"/>
+        </Border.Effect>
+		<vsm:VisualStateManager.VisualStateGroups>
+			<vsm:VisualStateGroup x:Name="VSVisibility">
+				<vsm:VisualStateGroup.Transitions>
+					<vsm:VisualTransition GeneratedDuration="0:0:0.2"/>
+				</vsm:VisualStateGroup.Transitions>
+				<VisualState x:Name="VSVisible">
+					<Storyboard>
+						<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="LayoutRoot" d:IsOptimized="True"/>
+					</Storyboard>
+				</VisualState>
+				<vsm:VisualState x:Name="VSHidden" />
+			</vsm:VisualStateGroup>
+		</vsm:VisualStateManager.VisualStateGroups>
+		<Grid Margin="15">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="0.5*"/>
+				<RowDefinition Height="0.5*"/>
+			</Grid.RowDefinitions>
+			<TextBlock x:Name="MajorStringTB" Text="{Binding IconDescription, Mode=OneWay}" Grid.Row="0" Style="{StaticResource EditorTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White" FontSize="10.667" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontStretch="SemiExpanded"/>
+			<TextBlock x:Name="MinorStringTB" Text="{Binding LocalDockTime, Mode=OneWay, Converter={StaticResource HoverDateTimeConverter}}" Grid.Row="1" Style="{StaticResource EditorTextBlockStyle}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="8" FontFamily="Lucida Sans Unicode"/>
+		</Grid>
+	</Border>
+</UserControl>

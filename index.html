@@ -1,0 +1,298 @@
+<html>
+    <title>NinePlaces (BETA)</title> 
+    <style type="text/css"> 
+    html, body {
+	    height: 100%;
+	    overflow: auto;
+    }
+    #silverlightControlHost {
+	    height: 100%;
+	    text-align:center;
+    }
+    </style> 
+
+        <style type="text/css">
+            body { padding:0;margin:0;background:#FFFFFF;font-family:Verdana,sans-serif;text-align:center;}
+            h1 { font-size:1.2em;}
+
+	    #install-container
+	    {
+		background: #FFFFFF;
+		width:500px;
+		height:500px;
+		margin: 0 auto;
+		padding:10px;
+		color:#000000;
+		margin-top:20px;
+	    }
+            .content { text-align:left;padding:10px;height:300px;margin-top:20px;}
+            .hidden { display:none; }
+        </style>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript"></script>
+	<script src="/Silverlight.js" type="text/javascript"></script>
+	<script src="/Silverlight.supportedUserAgent.js" type="text/javascript"></script>
+	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-19913826-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<script type="text/javascript" src="/time-tracker.js"></script> 
+    <script type="text/javascript"> 
+
+		window.onbeforeunload = confirmExit;
+
+
+        var oInitTimeTracker = new TimeTracker();
+        oInitTimeTracker._setHistogramBuckets([50, 100, 250, 500, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 15000, 20000]);
+        oInitTimeTracker._recordStartTime();
+
+        function slTrackEvent(arg1, arg2, arg3, arg4) {
+
+            if (arg3 && arg4) {
+               _gaq.push(['_trackEvent', arg1, arg2, arg3, arg4]);
+            }
+            else if (arg3) {
+                _gaq.push(['_trackEvent', arg1, arg2, arg3]);
+            }
+            else {
+                _gaq.push(['_trackEvent', arg1, arg2]);
+            }
+        }
+		
+        function slTrackPageView(arg1) {
+            _gaq.push(['_trackPageview', arg1]);
+        }
+
+        function initCompleted() {
+            if (oInitTimeTracker) {
+                
+            oInitTimeTracker._recordEndTime();
+            oInitTimeTracker._track();
+            }
+        }
+		
+        function confirmExit(e){
+            var control = document.getElementById('silverlightPlugin');
+            if (control.Content.SLApp.IsModified) 
+            {
+                if (!e)
+                    e = window.event;
+
+                //e.cancelBubble is supported by IE - this will kill the bubbling process.
+                e.cancelBubble = true;
+                e.returnValue = 'There is currently unsaved information pending.  You may lose recent changes by navigating away.\r\n\r\nAlso note that you must be signed in for your vacation to be saved!'; //This is displayed on the dialog
+
+                //e.stopPropagation works in Firefox.
+                if (e.stopPropagation) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                }
+            }
+        }
+		</script>
+	<!-- Silverlight error script -->
+	<script type="text/javascript">
+	function onSilverlightError(sender, args)
+	{
+	    // A work around for upgrade issues
+	    if (args.ErrorCode.toString().indexOf("8001") > -1)
+	    {
+			showState("#upgrade-start");
+			return;
+	    }
+			if (args.ErrorCode.toString().indexOf("8002") > -1) {
+			showState("#restart-pending");
+			return;
+	    }
+		if (Silverlight.IsVersionAvailableOnError(sender, args))
+	    {
+                var appSource = "";
+                if (sender != null && sender != 0) {
+                    appSource = sender.getHost().Source;
+                }
+                var errorType = args.ErrorType;
+                var iErrorCode = args.ErrorCode;
+
+                var errMsg = "Unhandled Error in Silverlight Application " + appSource + "\n";
+
+                errMsg += "Code: " + iErrorCode + "    \n";
+                errMsg += "Category: " + errorType + "       \n";
+                errMsg += "Message: " + args.ErrorMessage + "     \n";
+
+                if (errorType == "ParserError") {
+                    errMsg += "File: " + args.xamlFile + "     \n";
+                    errMsg += "Line: " + args.lineNumber + "     \n";
+                    errMsg += "Position: " + args.charPosition + "     \n";
+                }
+                else if (errorType == "RuntimeError") {
+                    if (args.lineNumber != 0) {
+                        errMsg += "Line: " + args.lineNumber + "     \n";
+                        errMsg += "Position: " + args.charPosition + "     \n";
+                    }
+                    errMsg += "MethodName: " + args.methodName + "     \n";
+                }
+
+                throw new Error(errMsg);
+            }
+	    }
+	</script>
+	<script type="text/javascript">
+	$(document).ready(function()
+	{
+	    if (Silverlight.supportedUserAgent())
+	    {
+			$("#install-start a").click(function()
+			{
+				$("#install-start").toggle();
+				$("#install-complete").toggle();
+				window.location = "http://go2.microsoft.com/fwlink/?linkid=124807";
+			});
+
+			$("#upgrade-start a").click(function()
+			{
+				$("#upgrade-start").toggle();
+				$("#upgrade-complete").toggle();
+				window.location = "http://go2.microsoft.com/fwlink/?linkid=124807";
+			});
+
+			$("#restart-pending a").click(function()
+			{
+				$("#install-container").hide();
+				$("#silverlightControlHost").show();
+			});
+	    }
+	    else
+	    {
+			showState("#not-supported");
+	    }
+	});
+
+	function onSilverlightLoad(sender)
+	{
+	    Silverlight.IsVersionAvailableOnLoad(sender);
+	}
+
+	Silverlight.onRestartRequired = function()
+	{
+	    if (Silverlight.supportedUserAgent())
+			showState("#restart-pending");
+	};
+
+	Silverlight.onUpgradeRequired = function()
+	{
+	    if (Silverlight.supportedUserAgent())
+			showState("#upgrade-start");
+	};
+
+	Silverlight.onInstallRequired = function()
+	{
+	    if (Silverlight.supportedUserAgent())
+			showState("#install-start");
+	};
+
+	function showState(id)
+	{    
+	    $("#silverlightControlHost").hide();
+	    $("#install-container").show();
+	    $(id).toggle();
+	}
+	</script>
+    </head>
+    <body>
+	<div id="install-container" class="hidden">
+
+	    <div class="content">
+		<!-- No silverlight installed -->
+		<div id="install-start" class="hidden">
+			<script type="text/javascript" >
+				if (document.images) {
+					normal = new Image;
+					hover = new Image;
+					pressed = new Image;
+
+					normal.src = '/Images/InstallSilverlight_normal.jpg';
+					hover.src = '/Images/InstallSilverlight_hover.jpg';
+					pressed.src = '/Images/InstallSilverlight_pressed.jpg';
+				}		
+				</script>
+			<table height="100%" width="100%" cellpadding="0" cellspacing="0">
+				<tr>
+					<td><center><img src="/Images/InstallSilverlight_top.jpg" border=0 /></center></td>
+				</tr>
+				<tr>
+					<td><center>
+						<a href="http://go.microsoft.com/fwlink/?LinkID=149156" style="text-decoration:none" onmouseover="document.InstallButton.src=hover.src" onmouseout="document.InstallButton.src=normal.src" onclick="document.InstallButton.src=pressed.src;Silverlight.WaitForInstallCompletion();"><img name="InstallButton" src="/Images/InstallSilverlight_normal.jpg" border=0 /></a></center></td>
+				</tr>
+				<tr>
+					<td><center><img src="/Images/InstallSilverlight_bottom.jpg" border=0 /></center></td>
+				</tr>
+			</table>
+		</div>
+
+		<!-- Install pending or completed -->
+		<div id="install-complete" class="hidden">
+		    <h1>Installing Silverlight...</h1>
+		    Please restart your browser once the installation is complete.
+		</div>
+
+		<!-- Upgrade starting -->
+		<div id="upgrade-start" class="hidden">
+		    <h1>You need to upgrade Silverlight</h1>
+		    You to upgrade the Silverlight plugin before you continue.
+		    <a href="javascript:;">Click here to upgrade it.</a>
+		</div>
+
+		<!-- Upgrade pending or complete -->
+		<div id="upgrade-complete" class="hidden">
+		    <h1>Upgrading Silverlight...</h1>
+		    Please restart your browser once the upgrade is complete.
+		</div>
+
+		<!-- Restart required -->
+		<div id="restart-pending" class="hidden">
+		    <h1>Please restart your browser before continuing.</h1>
+		    If you have already restarted your browser, <a href="javascript:;">click here</a> to continue.
+		</div>
+
+		<!-- Not supported -->
+		<div id="not-supported" class="hidden">
+		    <h1>Sorry, your browser does not yet support Microsoft Silverlight.</h1>
+
+		    Silverlight is currently supported on the following browsers:
+		    <ul>
+				<li>Microsoft Internet Explorer</li>
+				<li>Mozilla Firefox 3+</li>
+				<li>Google Chrome</li>
+				<li>Safari</li>
+		    </ul>
+
+		    Please use one of the browsers above to be to enable the enhanced editor.
+		</div>
+	    </div>
+
+	</div>
+
+	<div id="silverlightControlHost" style="height:100%;">
+	  
+		<object data="data:application/x-silverlight," type="application/x-silverlight" width="100%" height="100%">
+			<param name="source" value="/9P/ClientBin/NinePlaces.xap"/>
+			<param name="background" value="white" />
+			<param name="minRuntimeVersion" value="4.0" />
+			<param name="autoUpgrade" value="false" />
+			<param name="onerror" value="onSilverlightError" />
+			<param name="onload" value="onSilverlightLoad" />			
+		</object>
+		<iframe id="_sl_historyFrame" style="visibility:hidden;height:0px;width:0px;border:0px"></iframe></iframe>
+	</div>
+    </body>
+</html>

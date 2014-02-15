@@ -1,0 +1,25 @@
+﻿            
+	<div class="eventItem" >
+      <table>
+        <tr>
+          <td class="eventtitle" colspan="5" >
+           <B>%%TITLE%%</B> - %%DATE%%
+         </td>
+        </tr>
+        <tr>
+          <td width="60px"><img src="%%ICONJPG%%"></td>
+          <td width="125px">          
+            %%ATTRIBUTES1%%
+          </td>
+          <td width="200px">
+			%%VALUES1%%
+          </td>
+          <td width="125px">
+            %%ATTRIBUTES2%%
+          </td>
+          <td width="200px">
+            %%VALUES2%%
+          </td>
+        </tr>
+      </table>
+    </div>

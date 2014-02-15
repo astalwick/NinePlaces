@@ -1,0 +1,50 @@
+﻿<Editors:BaseDetailsEditor x:Class="Editors.HouseDetailsEditor"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:Editors="clr-namespace:Editors"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+    xmlns:BasicEditors="clr-namespace:BasicEditors" xmlns:Localization="clr-namespace:Localization"
+    ShadingGradient="{StaticResource LodgingIconEditorGradient}"
+    BackgroundGradient="{StaticResource LodgingIconGradient}">
+
+    <Editors:BaseDetailsEditor.Resources>
+        <ResourceDictionary Source="Resources.xaml"/>
+    </Editors:BaseDetailsEditor.Resources>
+
+    <sdk:TabControl Height="Auto" Style="{StaticResource DetailsEditorTabStyle}" BorderThickness="0" Background="{StaticResource LodgingTabControlGradient}">
+        <Editors:MyTabItem Header="ITINERARY" Style="{StaticResource DetailsEditorTabItemStyle}" BorderBrush="#7FFFFFFF" BorderThickness="1" Background="{StaticResource LodgingEditorTabItemGradient}">
+            <Grid x:Name="LayoutRoot" Width="Auto" Margin="4,4,4,4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition MinHeight="50" Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding Path=StringLibrary.HouseName, Source={StaticResource LocalizedStrings}}" Style="{StaticResource EditorTextBlockStyle}" Width="Auto" Height="16" />
+                <TextBox  IsEnabled="{Binding WritePermitted, Mode=OneTime}" Grid.Column="1" Grid.Row="0" x:Name="tbDestination" Width="Auto" Text="{Binding LodgingName, Mode=TwoWay}" Style="{StaticResource EditorTextBoxStyle}" Height="21" />
+
+        <TextBlock Grid.Column="0" Grid.Row="1" Width="Auto" Text="{Binding Path=StringLibrary.HouseArriveTime, Source={StaticResource LocalizedStrings}}" Style="{StaticResource EditorTextBlockStyle}" Height="16" VerticalAlignment="Center"/>
+                <BasicEditors:DateSelection  IsEnabled="{Binding WritePermitted, Mode=OneTime}" SelectedDateTime="{Binding LocalDockTime, Mode=TwoWay}" Grid.Column="1" Grid.Row="1" />
+
+        <TextBlock Grid.Column="0" Grid.Row="2" Width="Auto" Text="{Binding Path=StringLibrary.HouseLeaveTime, Source={StaticResource LocalizedStrings}}" Style="{StaticResource EditorTextBlockStyle}" Height="16"/>
+
+                <BasicEditors:DateSelection  IsEnabled="{Binding WritePermitted, Mode=OneTime}" SelectedDateTime="{Binding LocalEndTime, Mode=TwoWay}" Grid.Column="1" Grid.Row="2" />
+
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Text="{Binding Path=StringLibrary.HouseAddress, Source={StaticResource LocalizedStrings}}" Width="Auto" Style="{StaticResource EditorTextBlockStyle}" x:Name="textBlock1" Height="16" />
+                <BasicEditors:AddressControl  IsEnabled="{Binding WritePermitted, Mode=OneTime}" x:Name="Address" Street="{Binding StreetAddress, Mode=TwoWay}" City="{Binding City, Mode=TwoWay}" Country="{Binding Country, Mode=TwoWay}" PostalCode="{Binding PostalCode, Mode=TwoWay}" Province="{Binding Province, Mode=TwoWay}" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" Height="Auto" VerticalAlignment="Stretch" Width="Auto" />
+            </Grid>
+        </Editors:MyTabItem>
+        <Editors:MyTabItem Header="NOTES" Style="{StaticResource DetailsEditorTabItemStyle}" BorderBrush="Transparent" Background="{StaticResource LodgingEditorTabItemGradient}">
+            <Grid VerticalAlignment="Top">
+                <TextBox x:Name="tbNotes"  IsEnabled="{Binding WritePermitted, Mode=OneTime}" Width="Auto" Text="{Binding Notes, Mode=TwoWay}" Style="{StaticResource EditorTextBoxStyle}" Height="200" AcceptsReturn="True" TextWrapping="Wrap" />
+            </Grid>
+        </Editors:MyTabItem>
+    </sdk:TabControl>
+</Editors:BaseDetailsEditor>

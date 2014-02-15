@@ -1,0 +1,17 @@
+﻿<NinePlaces:LodgingIcon x:Class="NinePlaces.HouseIcon"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:NinePlaces="clr-namespace:NinePlaces"
+    xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows"             
+    Width="400" Height="300">
+
+    <Grid>
+	  <!-- Layer 1/<Compound Path> -->
+	  <Path Data="F1M10.3423,1.9785L1.1653,12.5085L10.2793,17.3435L11.6283,16.9145L22.0763,4.3855L29.8403,13.4805L30.9443,13.4805L22.3773,3.1825z" Fill="White" Height="15.365" Stretch="Fill" Width="29.779" HorizontalAlignment="Left" Margin="1.165,1.979,0,0" UseLayoutRounding="False" VerticalAlignment="Top"/>
+	  <Path Data="F1M22.6152,23.9766L22.9292,18.5656L19.0022,19.8306L18.9092,21.9336z" Fill="White" Height="5.411" Stretch="Fill" Width="4.02" HorizontalAlignment="Left" Margin="18.909,18.566,0,0" UseLayoutRounding="False" VerticalAlignment="Top"/>
+	  <Path Data="F1M22.0762,6.0947L12.4482,17.2267L12.7492,30.1627L18.0132,28.5087L18.1642,19.1817L25.7952,16.8057L25.2562,26.5577L28.2182,25.6947L28.8462,14.0677z M23.6982,18.2717L23.3062,26.1457L24.3592,26.7467L24.8362,17.9297z" Fill="White" Height="24.068" Stretch="Fill" Width="16.398" HorizontalAlignment="Left" Margin="12.448,6.095,0,0" UseLayoutRounding="False" VerticalAlignment="Top"/>
+	  <Path Data="F1M7.168,19.2197L6.469,18.9067L6.451,22.8787L8.031,23.7817L8.063,22.9997L7.139,22.5067z M8.638,24.9067L5.859,23.2707L5.876,17.9417L8.673,19.3307z M11.341,18.2797L9.988,18.5797L3.218,14.9697L3.82,23.6947L11.642,29.4107z" Fill="White" Height="14.441" Stretch="Fill" Width="8.424" HorizontalAlignment="Left" Margin="3.218,14.97,0,0" UseLayoutRounding="False" VerticalAlignment="Top"/>
+    </Grid>
+
+</NinePlaces:LodgingIcon>
+

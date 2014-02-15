@@ -1,0 +1,19 @@
+﻿<NinePlaces:ActivityIcon x:Class="NinePlaces.OutdoorIcon"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:NinePlaces="clr-namespace:NinePlaces"
+    xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows"             
+    Width="400" Height="300">
+
+    <Grid>
+        <!-- Layer 1/<Compound Path> -->
+		  <Path Fill="#ffffffff" Data="F1 M 8.943,10.649 L 15.354,13.740 L 15.354,9.664 L 10.912,7.521 C 10.219,8.508 9.546,9.564 8.943,10.649 Z M 11.995,6.051 L 15.354,7.671 L 15.354,2.319 C 14.465,3.106 13.244,4.434 11.995,6.051 Z M 15.354,24.063 L 15.354,22.402 L 6.547,18.156 C 6.601,21.472 8.861,23.981 15.354,24.063 Z M 6.733,16.253 L 15.354,20.409 L 15.354,15.732 L 8.122,12.245 C 7.480,13.597 6.986,14.958 6.733,16.253 Z"/>
+
+		  <!-- Layer 1/<Compound Path> -->
+		  <Path Fill="#ffffffff" Data="F1 M 21.189,7.432 L 16.747,9.574 L 16.747,13.651 L 23.158,10.560 C 22.555,9.476 21.881,8.419 21.189,7.432 Z M 16.747,2.230 L 16.747,7.582 L 20.105,5.962 C 18.857,4.345 17.635,3.017 16.747,2.230 Z M 25.553,18.067 L 16.747,22.312 L 16.747,23.976 C 23.240,23.892 25.500,21.384 25.553,18.067 Z M 23.979,12.156 L 16.747,15.643 L 16.747,20.319 L 25.367,16.165 C 25.113,14.869 24.619,13.508 23.979,12.156 Z"/>
+
+		  <!-- Layer 1/<Path> -->
+		  <Path StrokeThickness="2.8" Stroke="#ffffffff" StrokeMiterLimit="1.0" Data="F1 M 15.947,25.079 L 15.947,30.179"/>
+				
+	</Grid>
+</NinePlaces:ActivityIcon>

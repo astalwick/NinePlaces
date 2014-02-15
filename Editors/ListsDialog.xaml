@@ -1,0 +1,221 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:System="clr-namespace:System;assembly=mscorlib"
+	xmlns:Editors="clr-namespace:Editors"
+	mc:Ignorable="d"
+	x:Class="Editors.ListsDialog"
+	>
+
+	<UserControl.Resources>
+		<ControlTemplate x:Key="ValidationToolTipTemplate">
+			<Grid x:Name="Root" Margin="5,0" Opacity="0" RenderTransformOrigin="0,0">
+				<Grid.RenderTransform>
+					<TranslateTransform x:Name="xform" X="-25"/>
+				</Grid.RenderTransform>
+				<VisualStateManager.VisualStateGroups>
+					<VisualStateGroup x:Name="OpenStates">
+						<VisualStateGroup.Transitions>
+							<VisualTransition GeneratedDuration="0"/>
+							<VisualTransition GeneratedDuration="0:0:0.2" To="Open">
+								<Storyboard>
+									<DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="X" Storyboard.TargetName="xform">
+										<DoubleAnimation.EasingFunction>
+											<BackEase Amplitude=".3" EasingMode="EaseOut"/>
+										</DoubleAnimation.EasingFunction>
+									</DoubleAnimation>
+									<DoubleAnimation Duration="0:0:0.2" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Root"/>
+								</Storyboard>
+							</VisualTransition>
+						</VisualStateGroup.Transitions>
+						<VisualState x:Name="Closed">
+							<Storyboard>
+								<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Root"/>
+							</Storyboard>
+						</VisualState>
+						<VisualState x:Name="Open">
+							<Storyboard>
+								<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="X" Storyboard.TargetName="xform"/>
+								<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Root"/>
+							</Storyboard>
+						</VisualState>
+					</VisualStateGroup>
+				</VisualStateManager.VisualStateGroups>
+				<Border Background="#052A2E31" CornerRadius="5" Margin="4,4,-4,-4"/>
+				<Border Background="#152A2E31" CornerRadius="4" Margin="3,3,-3,-3"/>
+				<Border Background="#252A2E31" CornerRadius="3" Margin="2,2,-2,-2"/>
+				<Border Background="#352A2E31" CornerRadius="2" Margin="1,1,-1,-1"/>
+				<Border Background="#FFDC000C" CornerRadius="2"/>
+				<Border CornerRadius="2">
+					<TextBlock Foreground="White" MaxWidth="250" Margin="8,4,8,4" TextWrapping="Wrap" Text="{Binding (Validation.Errors)[0].ErrorContent}" UseLayoutRounding="false"/>
+				</Border>
+			</Grid>
+		</ControlTemplate>
+		<Style x:Key="ShareTextBoxStyle" TargetType="TextBox">
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="Background" Value="#FFFFFFFF"/>
+			<Setter Property="Foreground" Value="#FF000000"/>
+			<Setter Property="Padding" Value="2"/>
+			<Setter Property="BorderBrush">
+				<Setter.Value>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+						<GradientStop Color="#FFA3AEB9" Offset="0"/>
+						<GradientStop Color="#FF8399A9" Offset="0.375"/>
+						<GradientStop Color="#FF718597" Offset="0.375"/>
+						<GradientStop Color="#FF617584" Offset="1"/>
+					</LinearGradientBrush>
+				</Setter.Value>
+			</Setter>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="TextBox">
+						<Grid x:Name="RootElement">
+							<VisualStateManager.VisualStateGroups>
+								<VisualStateGroup x:Name="CommonStates">
+									<VisualState x:Name="Normal"/>
+									<VisualState x:Name="MouseOver">
+										<Storyboard>
+											<ColorAnimation Duration="0" To="#FF99C1E2" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="MouseOverBorder"/>
+										</Storyboard>
+									</VisualState>
+									<VisualState x:Name="Disabled"/>
+									<VisualState x:Name="ReadOnly"/>
+								</VisualStateGroup>
+								<VisualStateGroup x:Name="FocusStates">
+									<VisualState x:Name="Focused">
+										<Storyboard>
+											<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualElement"/>
+										</Storyboard>
+									</VisualState>
+									<VisualState x:Name="Unfocused">
+										<Storyboard>
+											<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualElement"/>
+										</Storyboard>
+									</VisualState>
+								</VisualStateGroup>
+								<VisualStateGroup x:Name="ValidationStates">
+									<VisualState x:Name="Valid"/>
+									<VisualState x:Name="InvalidUnfocused">
+										<Storyboard>
+											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="ValidationErrorElement">
+												<DiscreteObjectKeyFrame KeyTime="0">
+													<DiscreteObjectKeyFrame.Value>
+														<Visibility>Visible</Visibility>
+													</DiscreteObjectKeyFrame.Value>
+												</DiscreteObjectKeyFrame>
+											</ObjectAnimationUsingKeyFrames>
+										</Storyboard>
+									</VisualState>
+									<VisualState x:Name="InvalidFocused">
+										<Storyboard>
+											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="ValidationErrorElement">
+												<DiscreteObjectKeyFrame KeyTime="0">
+													<DiscreteObjectKeyFrame.Value>
+														<Visibility>Visible</Visibility>
+													</DiscreteObjectKeyFrame.Value>
+												</DiscreteObjectKeyFrame>
+											</ObjectAnimationUsingKeyFrames>
+											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="IsOpen" Storyboard.TargetName="validationTooltip">
+												<DiscreteObjectKeyFrame KeyTime="0">
+													<DiscreteObjectKeyFrame.Value>
+														<System:Boolean>True</System:Boolean>
+													</DiscreteObjectKeyFrame.Value>
+												</DiscreteObjectKeyFrame>
+											</ObjectAnimationUsingKeyFrames>
+										</Storyboard>
+									</VisualState>
+								</VisualStateGroup>
+							</VisualStateManager.VisualStateGroups>
+							<Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="1" Opacity="1">
+								<Grid>
+									<Border x:Name="MouseOverBorder" BorderBrush="Transparent" BorderThickness="1">
+										<ScrollViewer x:Name="ContentElement" BorderThickness="0" IsTabStop="False" Padding="{TemplateBinding Padding}"/>
+									</Border>
+								</Grid>
+							</Border>
+							<Border x:Name="FocusVisualElement" BorderBrush="#FF6DBDD1" BorderThickness="{TemplateBinding BorderThickness}" IsHitTestVisible="False" Margin="1" Opacity="0"/>
+							<Border x:Name="ValidationErrorElement" BorderBrush="#FFDB000C" BorderThickness="1" CornerRadius="1" Visibility="Collapsed">
+								<ToolTipService.ToolTip>
+									<ToolTip x:Name="validationTooltip" DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}}" Placement="Right" PlacementTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}" Template="{StaticResource ValidationToolTipTemplate}">
+										<ToolTip.Triggers>
+											<EventTrigger RoutedEvent="Canvas.Loaded">
+												<BeginStoryboard>
+													<Storyboard>
+														<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="IsHitTestVisible" Storyboard.TargetName="validationTooltip">
+															<DiscreteObjectKeyFrame KeyTime="0">
+																<DiscreteObjectKeyFrame.Value>
+																	<System:Boolean>true</System:Boolean>
+																</DiscreteObjectKeyFrame.Value>
+															</DiscreteObjectKeyFrame>
+														</ObjectAnimationUsingKeyFrames>
+													</Storyboard>
+												</BeginStoryboard>
+											</EventTrigger>
+										</ToolTip.Triggers>
+									</ToolTip>
+								</ToolTipService.ToolTip>
+								<Grid Background="Transparent" HorizontalAlignment="Right" Height="12" Margin="1,-4,-4,0" VerticalAlignment="Top" Width="12">
+									<Path Data="M 1,0 L6,0 A 2,2 90 0 1 8,2 L8,7 z" Fill="#FFDC000C" Margin="1,3,0,0"/>
+									<Path Data="M 0,0 L2,0 L 8,6 L8,8" Fill="#ffffff" Margin="1,3,0,0"/>
+								</Grid>
+							</Border>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</UserControl.Resources>
+
+    
+	<Border CornerRadius="7" Background="{StaticResource TravelIconGradient}" MinWidth="600" MinHeight="400">
+
+        <Border.Effect>
+            <DropShadowEffect Opacity="0.32" BlurRadius="4" ShadowDepth="4"/>
+        </Border.Effect>
+        <Grid x:Name="LayoutRoot" Width="Auto" Height="Auto" Margin="25">
+			
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+			</Grid.RowDefinitions>
+			
+			<Grid Grid.Row="0" Grid.Column="0" >
+				<Grid.ColumnDefinitions>
+		            <ColumnDefinition Width="Auto" />
+		            <ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<TextBlock Grid.Column="0" HorizontalAlignment="Left" Margin="0,15,0,15" VerticalAlignment="Top" FontFamily="Lucida Sans Unicode" FontWeight="Bold" Text="Lists" TextWrapping="NoWrap" FontSize="25" FontStyle="Normal" OpacityMask="{x:Null}" Foreground="#B7FFFFFF"/>
+                <Grid x:Name="RenameStackPanel" Visibility="Collapsed" Grid.Column="1" HorizontalAlignment="Right" Margin="0,15,0,15" VerticalAlignment="Top" Width="250" Height="30">
+                	<Grid.ColumnDefinitions>
+			            <ColumnDefinition Width="*" />
+			            <ColumnDefinition Width="Auto" />
+					</Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0" x:Name="RenameTextbox" Text="{Binding SelectedValue.ListName, ElementName=ListSelectDropDown, Mode=TwoWay}"  Background="{x:Null}" BorderBrush="{x:Null}"  Height="30" HorizontalAlignment="Stretch" Foreground="White" FontSize="12" FontFamily="Lucida Sans Unicode" BorderThickness="0" FontStretch="SemiExpanded" TextAlignment="Left"/>
+                    <Button Style="{StaticResource NinePlacesDefaultButtonStyle}" Foreground="White" FontWeight="Bold" FontSize="13.333" FontFamily="Lucida Sans Unicode" Grid.Column="1" x:Name="DoneRenameButton" Margin="5,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="50" Height="30" Content="Done"/>
+                </Grid>
+				
+                <ComboBox x:Name="ListSelectDropDown" Grid.Column="1" HorizontalAlignment="Right" Margin="0,15,0,15" VerticalAlignment="Top" Width="250" Height="30" ItemsSource="{Binding Lists}" d:IsHidden="True">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding ListName, Mode=OneWay}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+				<StackPanel Orientation="Horizontal" Grid.Column="2" Margin="15,15,0,0" >
+	                <Button x:Name="NewListButton" Style="{StaticResource NinePlacesDefaultButtonStyle}" Foreground="White" FontWeight="Bold" FontSize="13.333" FontFamily="Lucida Sans Unicode" VerticalAlignment="Top" HorizontalAlignment="Right"  Height="30" Width="50" Content="New"/>
+                    <Button x:Name="RenameListButton" Style="{StaticResource NinePlacesDefaultButtonStyle}" Foreground="White" FontWeight="Bold" FontSize="13.333" FontFamily="Lucida Sans Unicode" VerticalAlignment="Top" Margin="5,0,0,0" HorizontalAlignment="Right" Width="70" Height="30" Content="Rename"/>
+					<Button x:Name="DeleteListButton" Style="{StaticResource NinePlacesDefaultButtonStyle}" Foreground="White" FontWeight="Bold" FontSize="13.333" FontFamily="Lucida Sans Unicode" VerticalAlignment="Top" Margin="5,0,0,0" HorizontalAlignment="Right" Width="60" Height="30" Content="Delete"/>
+                    <HyperlinkButton x:Name="PrintListButton" Style="{StaticResource NinePlacesHeavyHyperlinkButtonStyle}"  Foreground="White" FontWeight="Bold" FontSize="13.333" FontFamily="Lucida Sans Unicode" VerticalAlignment="Top" Margin="5,0,0,0" HorizontalAlignment="Right"  Height="30" Width="50" Content="Print"/>
+				</StackPanel>
+			</Grid>
+            <Editors:TodoList x:Name="Todo" Grid.Column="1" HorizontalAlignment="Center" MinWidth="400" Grid.Row="1"/>
+            <Button x:Name="CloseButton" Content="Button" HorizontalAlignment="Right" VerticalAlignment="Top" Width="75" Style="{StaticResource CloseButtonStyle}" Margin="0,-46,-80,0"/>
+		</Grid>
+	</Border>
+</UserControl>

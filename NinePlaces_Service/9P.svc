@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="NinePlaces_Service.NinePlaces" CodeBehind="9P.svc.cs" Factory="NinePlaces_Service.CustomServiceHostFactory" %>

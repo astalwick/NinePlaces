@@ -1,0 +1,52 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="NinePlaces.IconDockControls.IconDockGroup"
+	d:DesignWidth="114" d:DesignHeight="51" xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows" >
+
+    <Grid x:Name="LayoutRoot" Margin="5,0,5,0">
+        <Grid.RowDefinitions> 
+	        <RowDefinition />
+			<RowDefinition Height="14"/>
+        </Grid.RowDefinitions>
+    	<vsm:VisualStateManager.VisualStateGroups>
+    		<vsm:VisualStateGroup x:Name="TextVisibility">
+    			<vsm:VisualStateGroup.Transitions>
+    				<vsm:VisualTransition From="IconTitleVisible" GeneratedDuration="00:00:00.5000000" To="GroupTitleVisible"/>
+    				<vsm:VisualTransition From="GroupTitleVisible" GeneratedDuration="00:00:00.0500000" To="IconTitleVisible"/>
+    			</vsm:VisualStateGroup.Transitions>
+    			<vsm:VisualState x:Name="IconTitleVisible">
+    				<Storyboard>
+    					<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="Title" Storyboard.TargetProperty="(UIElement.Opacity)">
+    						<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+    					</DoubleAnimationUsingKeyFrames>
+    				</Storyboard>
+    			</vsm:VisualState>
+    			<vsm:VisualState x:Name="GroupTitleVisible">
+    				<Storyboard>
+    					<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="IconTitle" Storyboard.TargetProperty="(UIElement.Opacity)">
+    						<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+    					</DoubleAnimationUsingKeyFrames>
+    				</Storyboard>
+    			</vsm:VisualState>
+    		</vsm:VisualStateGroup>
+    	</vsm:VisualStateManager.VisualStateGroups>
+        <Canvas x:Name="IconTitleCanvas" Grid.Row="1">
+            <TextBlock x:Name="IconTitle" Text="" Visibility="Visible"  FontSize="9" Foreground="Black"/>
+        </Canvas>
+        <Line Grid.RowSpan="2" Y1="20" StrokeThickness="1" Y2="36" X1="-5" X2="-5" Stroke="#FFC7C7C7"/>
+        <TextBlock x:Name="Title" Grid.Row="1" Text="" FontSize="9" Foreground="#FFC7C7C7" Margin="3,0,3,0"/>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" x:Name="IconContainer">
+            <!-- 
+	        <NinePlaces_Unused_Resources:EmptyTestUserControl2 Margin="3" Width="32" Height="32" />
+	        <NinePlaces_Unused_Resources:EmptyTestUserControl2 Margin="3" Width="32" Height="32" />
+	        <NinePlaces_Unused_Resources:EmptyTestUserControl2 Margin="3" Width="32" Height="32" />
+            -->
+        </StackPanel>
+		
+
+	</Grid>
+</UserControl>

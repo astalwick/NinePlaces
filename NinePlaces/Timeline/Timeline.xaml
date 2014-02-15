@@ -1,0 +1,45 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:NinePlaces="clr-namespace:NinePlaces"
+	x:Class="NinePlaces.Timeline"
+        xmlns:Localization="clr-namespace:NinePlaces.Localization"
+	d:DesignHeight="600">
+
+    <UserControl.Resources>
+        <Localization:LocalizedStrings x:Key="LocalizedStrings" />
+    </UserControl.Resources>
+    
+    <Grid x:Name="TimelineRoot" Width="Auto" Height="Auto" MinHeight="252">
+		<Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+			
+			<RowDefinition Height="60"/>  
+            <RowDefinition Height="3*"/>
+		</Grid.RowDefinitions>
+
+        <NinePlaces:VacationTitleControl Grid.Row="0"/>
+        <NinePlaces:WhereAmI x:Name="WhereAmI" Grid.Row="1"/>
+        <NinePlaces:DockLine  x:Name="TravelDockline" Grid.Row="2" Canvas.ZIndex="1" Class="Transportation" DockRegionMargin="16.0" Color="{StaticResource TravelIconColor}" Text="{Binding Path=StringLibrary.Transportation, Source={StaticResource LocalizedStrings}}"/>
+        <NinePlaces:DockLine  x:Name="ActivityDockline" Grid.Row="3" Canvas.ZIndex="1" Class="Lodging" DockRegionMargin="16.0" Color="{StaticResource LodgingIconColor}" Text="{Binding Path=StringLibrary.Lodging, Source={StaticResource LocalizedStrings}}"/>
+        <NinePlaces:DockLine  x:Name="LodgingDockline" Grid.Row="4" Canvas.ZIndex="1" Class="Activity" DockRegionMargin="16.0" Color="{StaticResource ActivityIconColor}" Text="{Binding Path=StringLibrary.Activities, Source={StaticResource LocalizedStrings}}"/>
+
+        <Canvas x:Name="TimelineCanvas" IsHitTestVisible="True" Grid.Row="0" Canvas.ZIndex="-100" Grid.RowSpan="7" Width="Auto" Background="#00000000" />
+        <NinePlaces:TickRibbon x:Name="Ribbon" Margin="0,0,0,0" Width="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto" Grid.Row="5" Canvas.ZIndex="1" />
+
+        <NinePlaces:DockLine x:Name="PhotoDockline"  DockRegionMargin="64.0" Grid.Row="6" Canvas.ZIndex="1" Class="Photo" Color="{StaticResource TravelIconColor}" Text="Photos"/>
+
+        <Border Grid.Row="6"  x:Name="UploadPhotosBorder" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Background="Transparent" Visibility="Collapsed" >
+            <Button Margin="15" Style="{StaticResource NinePlacesDefaultButtonStyle}" Height="50" Width="170" Foreground="White" FontWeight="Bold" FontSize="13.333" FontFamily="Lucida Sans Unicode" x:Name="UploadPhotos" Content="Upload Photos" />
+        </Border>
+        
+        
+	</Grid>
+</UserControl>

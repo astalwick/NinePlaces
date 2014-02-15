@@ -1,0 +1,74 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="NinePlaces.OrbControl"
+	d:DesignWidth="250" d:DesignHeight="20" xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows">
+
+	<Canvas Width="20" x:Name="LayoutRoot" HorizontalAlignment="Left">
+		<vsm:VisualStateManager.VisualStateGroups>
+			<vsm:VisualStateGroup x:Name="Hover">
+				<vsm:VisualStateGroup.Transitions>
+					<vsm:VisualTransition GeneratedDuration="00:00:00.1000000"/>
+				</vsm:VisualStateGroup.Transitions>
+				<vsm:VisualState x:Name="VSNormal">
+					<Storyboard>
+                    </Storyboard>
+				</vsm:VisualState>
+				<vsm:VisualState x:Name="VSSelected">
+					<Storyboard>
+                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="LayoutRoot" Storyboard.TargetProperty="(FrameworkElement.Width)">
+							<SplineDoubleKeyFrame KeyTime="00:00:00" Value="200"/>
+						</DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="SlideOutOuterBorder" Storyboard.TargetProperty="(FrameworkElement.Width)">
+							<SplineDoubleKeyFrame KeyTime="00:00:00" Value="200"/>
+						</DoubleAnimationUsingKeyFrames>						
+					</Storyboard>
+				</vsm:VisualState>
+			</vsm:VisualStateGroup>
+		</vsm:VisualStateManager.VisualStateGroups>
+		<Grid x:Name="OrbBorder"  Width="20" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Canvas.ZIndex="2">
+            <Canvas x:Name="PositioningCanvas" />
+            <Ellipse Height="20" Width="20" HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="FillGradientStop" Fill="#FF63C6EF"/>
+			<Ellipse Height="20" Width="20" HorizontalAlignment="Left" VerticalAlignment="Top">
+				<Ellipse.Fill>
+					<RadialGradientBrush>
+						<GradientStop  Color="#00FFFFFF" Offset="1"/>
+						<GradientStop Color="#AAFFFFFF" Offset="0"/>
+					</RadialGradientBrush>
+				</Ellipse.Fill>
+			</Ellipse>
+			<Path Height="13" Width="20" Stretch="Fill" StrokeThickness="2" Data="M19,10 C19,14.970563 14.901158,7.9905362 9.9305954,7.9905362 C4.9600325,7.9905362 1,14.970563 1,10 C1,5.0294371 5.0294371,1 10,1 C14.970563,1 19,5.0294371 19,10 z" Fill="#2AFFFFFF" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		</Grid>
+		<Grid HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Stretch" Width="20" x:Name="SlideOutOuterBorder">
+            
+            <Rectangle Width="Auto" Height="Auto" Fill="#FF63C6EF" RadiusX="10" RadiusY="10" x:Name="SlideOutBorder" >
+            </Rectangle>
+            <Rectangle Width="Auto" Height="Auto" Fill="#FF000000" RadiusX="10" RadiusY="10" >
+                <Rectangle.OpacityMask>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#00000000" Offset="0.0"/>
+                        <GradientStop Color="#02000000" Offset="0.64"/>
+                        <GradientStop Color="#12000000" Offset="0.88"/>
+                    </LinearGradientBrush>
+                </Rectangle.OpacityMask>
+            </Rectangle>
+            <Grid x:Name="SlideOutGrid" Height="Auto" VerticalAlignment="Stretch" Margin="5,0,5,0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="*" />
+                    <!-- if this is AUTO then address control sizing works but resizing editor doesn't.  -->
+                    <!-- if this is * then address control sizing doesn't work, but resizing editor does -->
+                </Grid.RowDefinitions>
+            </Grid>
+            <Path Height="20" IsHitTestVisible="False" Stretch="Fill" StrokeThickness="2" Data="M19,10 C19,14.970563 14.901158,7.9905362 9.9305954,7.9905362 C4.9600325,7.9905362 1,14.970563 1,10 C1,5.0294371 5.0294371,1 10,1 C14.970563,1 19,5.0294371 19,10 z" Fill="#1AFFFFFF" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		</Grid>
+	</Canvas>
+</UserControl>

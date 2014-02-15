@@ -1,0 +1,49 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:System="clr-namespace:System;assembly=mscorlib"
+	mc:Ignorable="d"
+	x:Class="NinePlaces.FirstVisitDialog"
+	>
+
+	<UserControl.Resources>
+	</UserControl.Resources>
+
+	<Border x:Name="LayoutBorder" CornerRadius="7" Background="{StaticResource TravelIconGradient}">
+        <Border.Effect>
+            <DropShadowEffect Opacity="0.32" BlurRadius="4" ShadowDepth="4"/>
+        </Border.Effect>
+        <Grid x:Name="LayoutRoot" Width="650" Margin="20">
+			
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				
+                <RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				
+			</Grid.RowDefinitions>
+			<TextBlock Grid.Row="0" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" FontFamily="Lucida Sans Unicode" FontWeight="Bold" TextWrapping="NoWrap" FontSize="25" FontStyle="Normal" OpacityMask="{x:Null}" Foreground="#B7FFFFFF"><Run Text="Welcome to NinePlaces!"/></TextBlock>
+			
+			
+			<TextBlock Grid.Row="1"  TextWrapping="Wrap" MinWidth="300" HorizontalAlignment="Left" Margin="20,10,20,10" VerticalAlignment="Top" FontFamily="Lucida Sans Unicode" FontSize="18.667" OpacityMask="{x:Null}" Foreground="#B7FFFFFF" FontWeight="Bold"><Run Text="First time "/><Run Text="visiting"/><Run Text="?"/></TextBlock>
+            <TextBlock Grid.Row="2"  TextWrapping="Wrap" MinWidth="300" HorizontalAlignment="Left" Margin="20,10,20,10" VerticalAlignment="Top" FontFamily="Lucida Sans Unicode" FontSize="15" OpacityMask="{x:Null}" Foreground="#B7FFFFFF"><Run Text="Here are "/><Run Text="a few tips to help you plan your vacation:"/></TextBlock>
+			
+			<TextBlock Grid.Row="3"  TextWrapping="Wrap" MinWidth="300" HorizontalAlignment="Left" Margin="20,10,20,10" VerticalAlignment="Top" FontFamily="Lucida Sans Unicode" FontSize="15" FontStyle="Normal" OpacityMask="{x:Null}" Foreground="#B7FFFFFF" Text="1. Drag an event icon from the top of the screen to the timeline."/>
+			<TextBlock Grid.Row="4"  TextWrapping="Wrap" MinWidth="300" HorizontalAlignment="Left" Margin="20,10,20,10" VerticalAlignment="Top" FontFamily="Lucida Sans Unicode" FontSize="15" FontStyle="Normal" OpacityMask="{x:Null}" Foreground="#B7FFFFFF" Text="2. Click any icon to edit details or add notes."/>
+			<TextBlock Grid.Row="5"  TextWrapping="Wrap" MinWidth="300" HorizontalAlignment="Left" Margin="20,10,20,10" VerticalAlignment="Top" FontFamily="Lucida Sans Unicode" FontSize="15" FontStyle="Normal" OpacityMask="{x:Null}" Foreground="#B7FFFFFF"><Run Text="3. Drag the event icon along the timeline to change the event's scheduled time"/><Run Text="."/></TextBlock>
+			<TextBlock Grid.Row="6"  TextWrapping="Wrap" MinWidth="300" HorizontalAlignment="Left" Margin="20,10,20,10" VerticalAlignment="Top" FontFamily="Lucida Sans Unicode" FontSize="15" FontStyle="Normal" OpacityMask="{x:Null}" Foreground="#B7FFFFFF"><Run Text="4. Zoom in and out using the mouse-wheel to see more or less of your vacation."/></TextBlock>
+			<TextBlock Grid.Row="7"  TextWrapping="Wrap" MinWidth="300" HorizontalAlignment="Left" Margin="20,10,20,10" VerticalAlignment="Top" FontFamily="Lucida Sans Unicode" FontSize="15" FontStyle="Normal" OpacityMask="{x:Null}" Foreground="#B7FFFFFF"><Run Text="Sign up for a free account to access all kinds of useful features: printable itineraries, to-do lists, vacation sharing and more!"></Run></TextBlock>
+			<Button x:Name="CloseButton" Content="Button" HorizontalAlignment="Right" VerticalAlignment="Top" Width="75" Style="{StaticResource CloseButtonStyle}" Margin="0,-41,-76,0"/>
+        </Grid>
+	</Border>
+</UserControl>

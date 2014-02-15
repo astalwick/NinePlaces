@@ -1,0 +1,544 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <DefaultClrNameSpace>NinePlaces</DefaultClrNameSpace>
+    <AssemblyName>NinePlaces</AssemblyName>
+    <RootNamespace>NinePlaces</RootNamespace>
+    <AlwaysCompileMarkupFilesInSeparateDomain>false</AlwaysCompileMarkupFilesInSeparateDomain>
+    <ExpressionBlendCreationVersion>2.1.1760.0</ExpressionBlendCreationVersion>
+    <ProjectGuid>{0C8164A6-97C0-421D-8F83-48FAFEC248A9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <NoStdLib>true</NoStdLib>
+    <SupportedCultures>
+      fr-FR
+    </SupportedCultures>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <StartPageUrl>Default.html</StartPageUrl>
+    <XapOutputs>true</XapOutputs>
+    <XapFilename>NinePlaces.xap</XapFilename>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>NinePlaces.App</SilverlightAppEntry>
+    <CreateTestPage>true</CreateTestPage>
+    <TestPageFileName>Default.html</TestPageFileName>
+    <DefineConstants>SILVERLIGHT</DefineConstants>
+    <SilverlightApplication>true</SilverlightApplication>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <UsePlatformExtensions>true</UsePlatformExtensions>
+    <ExpressionBlendVersion>4.0.20525.0</ExpressionBlendVersion>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+    <Utf8Output>true</Utf8Output>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\NinePlaces Analysis.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>SILVERLIGHT RELEASE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DebugSymbols>true</DebugSymbols>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release TESTING|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Release TESTING\</OutputPath>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\NinePlaces.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <NoConfig>true</NoConfig>
+    <DefineConstants>SILVERLIGHT RELEASETESTING</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Icons\Base\DurationIndicator.xaml.cs">
+      <DependentUpon>DurationIndicator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Icons\BusIcon.xaml.cs">
+      <DependentUpon>BusIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Icons\TrainIcon.xaml.cs">
+      <DependentUpon>TrainIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Icons\NightlifeIcon.xaml.cs">
+      <DependentUpon>NightlifeIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Icons\SportingEventIcon.xaml.cs">
+      <DependentUpon>SportingEventIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\SimpleTimeZoneDriver.cs" />
+    <Compile Include="FirstVisit.xaml.cs">
+      <DependentUpon>FirstVisit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WarningControl.xaml.cs">
+      <DependentUpon>WarningControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\IconViewModels\SportingEventIconViewModel.cs" />
+    <Compile Include="ViewModels\ListItemViewModel.cs" />
+    <Compile Include="ViewModels\ListViewModel.cs" />
+    <Compile Include="WhereAmI.xaml.cs">
+      <DependentUpon>WhereAmI.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Icons\Base\DurationIndicator.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Icons\BusIcon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Icons\TrainIcon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Icons\NightlifeIcon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Icons\SportingEventIcon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FirstVisit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WarningControl.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WhereAmI.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Windows.Controls">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Input, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DockLines\DockLine.xaml.cs">
+      <DependentUpon>DockLine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DockLines\Stacker.xaml.cs">
+      <DependentUpon>Stacker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ExtensionMethods.cs" />
+    <Compile Include="Icons\Base\IconRegistry.cs" />
+    <Compile Include="Icons\Base\ActivityIcon.cs" />
+    <Compile Include="Icons\Base\LodgingIcon.cs" />
+    <Compile Include="Icons\Base\TravelIcon.cs" />
+    <Compile Include="Icons\BeachIcon.xaml.cs">
+      <DependentUpon>BeachIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Icons\BoatIcon.xaml.cs">
+      <DependentUpon>BoatIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Icons\CarIcon.xaml.cs">
+      <DependentUpon>CarIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Icons\CampingIcon.xaml.cs">
+      <DependentUpon>CampingIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Icons\GenericIcon.xaml.cs">
+      <DependentUpon>GenericIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Icons\HouseIcon.xaml.cs">
+      <DependentUpon>HouseIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Icons\Base\IconControlBase.cs" />
+    <Compile Include="Icons\MeetUpIcon.xaml.cs">
+      <DependentUpon>MeetUpIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Icons\PhotoIcon.xaml.cs">
+      <DependentUpon>PhotoIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Icons\RestaurantIcon.xaml.cs">
+      <DependentUpon>RestaurantIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Icons\ShoppingIcon.xaml.cs">
+      <DependentUpon>ShoppingIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Icons\SightseeingIcon.xaml.cs">
+      <DependentUpon>SightseeingIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Icons\OutdoorIcon.xaml.cs">
+      <DependentUpon>OutdoorIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Icons\ShowIcon.xaml.cs">
+      <DependentUpon>ShowIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Icons\FlightIcon.xaml.cs">
+      <DependentUpon>FlightIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Icons\HotelIcon.xaml.cs">
+      <DependentUpon>HotelIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Icons\Base\DockableControlBase.cs" />
+    <Compile Include="Icons\Base\IconDateText.xaml.cs">
+      <DependentUpon>IconDateText.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IconDockControls\IconDock.xaml.cs">
+      <DependentUpon>IconDock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Events\IconDockEventArgs.cs" />
+    <Compile Include="Localization\LocalizedStrings.cs" />
+    <Compile Include="Localization\StringLibrary.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StringLibrary.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\DLLLoadManager.cs" />
+    <Compile Include="Helpers\MouseWheelHelper.cs" />
+    <Compile Include="Managers\TimeZoneManager.cs" />
+    <Compile Include="Managers\TimeZoneSegment.cs" />
+    <Compile Include="Page.xaml.cs">
+      <DependentUpon>Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Events\SelChangedEventArgs.cs" />
+    <Compile Include="Managers\SelectionMgr.cs" />
+    <Compile Include="Resource.Designer.cs" />
+    <Compile Include="Timeline\TickBag.cs" />
+    <Compile Include="Timeline\TickElement.xaml.cs">
+      <DependentUpon>TickElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Timeline\TickRibbon.xaml.cs">
+      <DependentUpon>TickRibbon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Timeline\Timeline.xaml.cs">
+      <DependentUpon>Timeline.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Icons\Base\TimelineConnector.xaml.cs">
+      <DependentUpon>TimelineConnector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoginSignUp.xaml.cs">
+      <DependentUpon>LoginSignUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Timeline\TimeZoneTickElement.cs" />
+    <Compile Include="TitleBar.xaml.cs">
+      <DependentUpon>TitleBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IconDockControls\IconDockGroup.xaml.cs">
+      <DependentUpon>IconDockGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Undo\AutoComplexUndo.cs" />
+    <Compile Include="Undo\CreateChildUndoObject.cs" />
+    <Compile Include="Undo\NoUndo.cs" />
+    <Compile Include="Undo\SetPropertyUndoObject.cs" />
+    <Compile Include="Undo\UndoMgr.cs" />
+    <None Include="Unused Resources\EmptyTestUserControl.xaml.cs">
+      <DependentUpon>EmptyTestUserControl.xaml</DependentUpon>
+    </None>
+    <Compile Include="VacationTitleControl.xaml.cs">
+      <DependentUpon>VacationTitleControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ActivityIconViewModel.cs" />
+    <Compile Include="ViewModels\Base\BaseViewModel.cs" />
+    <Compile Include="ViewModels\IconViewModels\CampingIconViewModel.cs" />
+    <Compile Include="ViewModels\IconViewModels\FlightIconViewModel.cs" />
+    <Compile Include="ViewModels\IconViewModels\GenericIconViewModel.cs" />
+    <Compile Include="ViewModels\IconViewModels\HotelIconViewModel.cs" />
+    <Compile Include="ViewModels\LodgingViewModel.cs" />
+    <Compile Include="ViewModels\PhotoViewModel.cs" />
+    <Compile Include="ViewModels\DurationIconViewModel.cs" />
+    <Compile Include="ViewModels\IconViewModels\MeetUpIconViewModel.cs" />
+    <Compile Include="ViewModels\LoginSignupViewModel.cs" />
+    <Compile Include="ViewModels\TravelIconViewModel.cs" />
+    <Compile Include="ViewModels\VacationViewModel.cs" />
+    <Compile Include="ViewModels\IconViewModel.cs" />
+    <Compile Include="ViewModels\TimelineViewModel.cs" />
+    <Compile Include="VisualStateHelper.cs" />
+    <Compile Include="WatermarkedTextBox.cs" />
+    <Page Include="DockLines\DockLine.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DockLines\Stacker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Icons\BeachIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Icons\BoatIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Icons\CarIcon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Icons\CampingIcon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Icons\GenericIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Icons\HouseIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Icons\MeetUpIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Icons\PhotoIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Icons\RestaurantIcon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Icons\ShoppingIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Icons\SightseeingIcon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Icons\OutdoorIcon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Icons\ShowIcon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Resource Include="Themes\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Page Include="Timeline\TickElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Timeline\TickRibbon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TitleBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Icons\FlightIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Icons\HotelIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Icons\Base\IconDateText.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="IconDockControls\IconDock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Timeline\Timeline.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Icons\Base\TimelineConnector.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="LoginSignUp.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="IconDockControls\IconDockGroup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <None Include="Unused Resources\EmptyTestUserControl.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </None>
+    <Page Include="VacationTitleControl.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Resource Include="Properties\AppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="index.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{40454A10-2B2E-4209-BDB6-4740D06FDB37}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Editors\Editors.csproj">
+      <Project>{9A036847-036E-4708-936C-159AA140C975}</Project>
+      <Name>Editors</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\REST_XML_Model\REST_XML_Model.csproj">
+      <Project>{AFFF84D5-1127-439B-9D68-6ABDD22C8843}</Project>
+      <Name>REST_XML_Model</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\StringLibrary.fr-FR.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\StringLibrary.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringLibrary.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

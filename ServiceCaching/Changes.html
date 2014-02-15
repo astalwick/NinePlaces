@@ -1,0 +1,18 @@
+<html>
+<head>
+	<title>Change Log</title>
+	<style type="text/css">
+		body { font: normal 10pt Helvetica, Arial, sans-serif; }
+	</style>
+</head>
+<body><h1>Enyim Memcached Version History</h1>
+
+<h2>Version 2.7</h2>
+
+<ul>
+<li>Removed log4net from the project and made the log provider configurable. See http://github.com/enyim/EnyimMemcached/wiki/Configure-Logging</li>
+<li>Fixed the config section to default to the Binary protocol. (The MemcachedClientConfiguration was already doing this for some time.)</li>
+<li>The client no longer checks if objects are larger than 1MB, but lets the server sort it out</li>
+</ul>
+</body>
+</html>

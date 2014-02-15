@@ -1,0 +1,8 @@
+﻿<UserControl x:Class="NinePlaces.VacationTitle"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  xmlns:Localization="clr-namespace:NinePlaces.Localization" xmlns:NinePlaces="clr-namespace:NinePlaces">
+
+	<Canvas  x:Name="LayoutRoot" Canvas.ZIndex="-10">
+		<NinePlaces:WhereAmIControl VerticalAlignment="Top" HorizontalAlignment="Center" x:Name="WhereAmI" Height="26" />
+	</Canvas>
+</UserControl>

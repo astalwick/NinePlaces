@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html> 
+<html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+    
+body { font-family: Arial; }
+html, body { margin: 0; padding: 0; } 
+img {	border-width: 0; }
+td { vertical-align: top;}
+
+.listItem {
+	font-size:11px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: left;
+	font-weight: normal;
+	position:relative;
+	float:left;
+	padding:10px;
+	margin:4px;
+	overflow:hidden;
+	width:800px;
+	page-break-before: auto;
+	page-break-after: auto;
+	border:1px #d1d0c0 solid;
+}
+
+.listItem > div{
+	padding:0px;
+	margin:0px;
+	
+}
+
+.listtitle
+{
+	font-size:12px;
+  font-family: Arial, Helvetica, sans-serif;
+	text-align: left;
+	font-weight: normal;
+	line-height:16px;
+  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAF/SURBVDjLpZN/S8JgEMd9i1JURPSDIoIkS1FQI4iQgihStExrhGmydGObyZyyYRaybBRFQb/8vxcgBIF92275ApoHx7jjns/37p49LgCuQdzlXmEXd8RON1L4QPjM9NwbQtkXBE+eEWCe4D9+hC99j+XDO3j3b+FJ3CCcvu5a5wgQLXV6ceUT/3Xv3mWPAJayE5/fboAA4dw7nNjspmoDQqevlDAMA+12G61WC1/fP1BVFfV6HbIsUyyKIgRBAMdxVD8drf0BzIU5scl12QZY27ZM13VSbzQapFir1VCtViFJEsUsy6JQKCCfz1P9xFrFBlhX5cTGVyUb4D96oESz2SR1RVFIsVKpoFwuo1gsUpzNZsEwDDKZDNWPhQUb4D0wHHUwHCjZgKVEmxKaptHc/ZmtL8/zNLMVp1IpJJNJxGIxqh/yn9sAT1x31IHbx6L/FtiF3Sv6s+a2NMxE65jaUMwtX9CixiIiRkM8RoKc2XbRVGZhnrGcJcDAr3FQwC803UMOARws7QAAAABJRU5ErkJggg==); 
+	background-repeat: no-repeat;
+	padding-left:22px;
+}
+
+.attribute
+{
+	font-size:12px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: left;
+	font-weight: bold;
+}
+
+.value
+{
+	font-size:12px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: left;
+	font-weight: normal;
+}
+
+    </style>
+  </head>
+  <body>
+  <form><input type="button" value=" Print this page "
+onclick="window.print();return false;" /></form>
+<H1>%%LISTNAME%%</H1>
+  <div>
+  %%ITEMS%%
+	</div>
+	
+  </body>
+</html>

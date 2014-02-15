@@ -1,0 +1,38 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="NinePlaces.CarDetailsEditor"
+	d:DesignWidth="406" d:DesignHeight="328" xmlns:NinePlaces="clr-namespace:NinePlaces">
+
+	<Grid x:Name="LayoutRoot" Width="Auto" Height="Auto" VerticalAlignment="Top" Margin="4,4,4,4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition />            		
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"  />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+		<TextBlock Grid.Column="0" Grid.Row="0" Text="Departure Time:" Style="{StaticResource EditorTextBlockStyle}" Width="Auto" Height="16" />
+        <NinePlaces:DateSelection SelectedDateTime="{Binding DepartureTime, Mode=TwoWay}" Grid.Column="1" Grid.Row="0" />
+		<TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Text="Departure Address:" Style="{StaticResource EditorTextBlockStyle}" x:Name="textBlock" Width="Auto" Height="16"/>
+		<NinePlaces:AddressControl x:Name="DepartureAddrCtrl" Street="{Binding DepartureStreet, Mode=TwoWay}" City="{Binding DepartureCity, Mode=TwoWay}" Country="{Binding DepartureCountry, Mode=TwoWay}" PostalCode="{Binding DeparturePostalCode, Mode=TwoWay}" Province="{Binding DepartureProvince, Mode=TwoWay}" Grid.Column="0"  Grid.ColumnSpan="2" Grid.Row="2" Height="Auto" VerticalAlignment="Stretch" Width="Auto" />
+		
+		<TextBlock Grid.Column="0" Grid.Row="3" Text="Destination:" Style="{StaticResource EditorTextBlockStyle}" Width="Auto" Height="16"/>
+		<TextBox Grid.Column="1" Grid.Row="3" x:Name="tbDestination" Width="Auto" Text="{Binding Destination, Mode=TwoWay}" Style="{StaticResource EditorTextBoxStyle}" Height="21" />
+			
+		<TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" Text="Destination Address:" Style="{StaticResource EditorTextBlockStyle}" x:Name="textBlock1" Width="Auto" Height="16"/>
+        
+        <NinePlaces:AddressControl x:Name="DestinationAddrCtrl" Street="{Binding DestinationStreet, Mode=TwoWay}" City="{Binding DestinationCity, Mode=TwoWay}" Country="{Binding DestinationCountry, Mode=TwoWay}" PostalCode="{Binding DestinationPostalCode, Mode=TwoWay}" Province="{Binding DestinationProvince, Mode=TwoWay}" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="5" Height="Auto" VerticalAlignment="Stretch" Width="Auto" />
+        
+	</Grid>
+</UserControl>

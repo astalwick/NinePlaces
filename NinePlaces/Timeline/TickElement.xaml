@@ -1,0 +1,16 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="NinePlaces.TickElement"
+	d:DesignWidth="20" d:DesignHeight="60"> 
+
+    <Grid x:Name="LayoutRoot" Height="Auto" Width="Auto" UseLayoutRounding="False" VerticalAlignment="Stretch" ShowGridLines="False">
+        <Canvas x:Name="TickCanvas" Height="Auto" Width="Auto" Background="#00333333"> 
+    	    <Path x:Name="Tick" Height="4" Margin="0,0,0,0" VerticalAlignment="Top" Fill="{x:Null}" Stretch="Fill" Stroke="#FF808080" StrokeThickness="1" Data="M8.333333,11.666666 L8.333333,26.401592" Width="1" HorizontalAlignment="Left"/>
+            <TextBlock x:Name="DateText" Margin="3,3,3,3" VerticalAlignment="Bottom" Visibility="Collapsed"></TextBlock>    
+        </Canvas>
+    </Grid>
+</UserControl>

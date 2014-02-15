@@ -1,0 +1,508 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Activities" xml:space="preserve">
+    <value>Activités</value>
+  </data>
+  <data name="Activity" xml:space="preserve">
+    <value>Activité:</value>
+  </data>
+  <data name="Beach" xml:space="preserve">
+    <value>Plage</value>
+  </data>
+  <data name="BeachHoverText" xml:space="preserve">
+    <value>Plage</value>
+  </data>
+  <data name="BeachHoverTextDetails" xml:space="preserve">
+    <value>Plage: {0}</value>
+  </data>
+  <data name="BeachName" xml:space="preserve">
+    <value>Nom de la plage:</value>
+  </data>
+  <data name="Boat" xml:space="preserve">
+    <value>Bâteau</value>
+  </data>
+  <data name="BoatHoverText" xml:space="preserve">
+    <value>Bâteau</value>
+  </data>
+  <data name="BoatHoverTextDetails" xml:space="preserve">
+    <value>Bâteau jusqu'à {0}</value>
+  </data>
+  <data name="BoatTo" xml:space="preserve">
+    <value>Bâteau jusqu'à:</value>
+  </data>
+  <data name="Camping" xml:space="preserve">
+    <value>Camping</value>
+  </data>
+  <data name="CampingHoverText" xml:space="preserve">
+    <value>Camping</value>
+  </data>
+  <data name="CampingHoverTextDetails" xml:space="preserve">
+    <value>Camping à {0}</value>
+  </data>
+  <data name="Car" xml:space="preserve">
+    <value>Auto</value>
+  </data>
+  <data name="CarHoverText" xml:space="preserve">
+    <value>Parcours</value>
+  </data>
+  <data name="CarHoverTextDetails" xml:space="preserve">
+    <value>Parcours à {0}</value>
+  </data>
+  <data name="CheckForFlights" xml:space="preserve">
+    <value>Trouver un vol!</value>
+  </data>
+  <data name="Destination" xml:space="preserve">
+    <value>Destination:</value>
+  </data>
+  <data name="EditActivityDetails" xml:space="preserve">
+    <value>Détails de l'activité</value>
+  </data>
+  <data name="EditCampingDetails" xml:space="preserve">
+    <value>Détails du camping</value>
+  </data>
+  <data name="EditDetails" xml:space="preserve">
+    <value>Modifier les détails</value>
+  </data>
+  <data name="EditEventDetails" xml:space="preserve">
+    <value>Détails de l'événement</value>
+  </data>
+  <data name="EditFlightItinerary" xml:space="preserve">
+    <value>L'Itinéraire de vol</value>
+  </data>
+  <data name="EditMeetUpDetails" xml:space="preserve">
+    <value>Détails de la rencontre</value>
+  </data>
+  <data name="EditNote" xml:space="preserve">
+    <value>Modifier la note</value>
+  </data>
+  <data name="EditReservation" xml:space="preserve">
+    <value>Détails de la réservation</value>
+  </data>
+  <data name="EditRoadTrip" xml:space="preserve">
+    <value>Détails du parcours</value>
+  </data>
+  <data name="EditSightseeingDetails" xml:space="preserve">
+    <value>Modifier les détails</value>
+  </data>
+  <data name="EditStayDetails" xml:space="preserve">
+    <value>Détails du séjour</value>
+  </data>
+  <data name="EditTravelDetails" xml:space="preserve">
+    <value>Détails du voyage</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Courriel</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>Courriel</value>
+  </data>
+  <data name="Event" xml:space="preserve">
+    <value>Événement:</value>
+  </data>
+  <data name="FindHotel" xml:space="preserve">
+    <value>Trouver un Hôtel!</value>
+  </data>
+  <data name="Flight" xml:space="preserve">
+    <value>Vol</value>
+  </data>
+  <data name="FlightHoverText" xml:space="preserve">
+    <value>Vol</value>
+  </data>
+  <data name="FlightHoverTextDetails" xml:space="preserve">
+    <value>Vol jusqu'à {0}</value>
+  </data>
+  <data name="FlightTo" xml:space="preserve">
+    <value>Voyage vers</value>
+  </data>
+  <data name="FoodLodging" xml:space="preserve">
+    <value>Repas et Hébergement</value>
+  </data>
+  <data name="GenericActivity" xml:space="preserve">
+    <value>FROther</value>
+  </data>
+  <data name="GenericActivityHoverText" xml:space="preserve">
+    <value>Activité</value>
+  </data>
+  <data name="GenericActivityHoverTextDetails" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="GetStarted" xml:space="preserve">
+    <value>Pour commencer</value>
+  </data>
+  <data name="GetTickets" xml:space="preserve">
+    <value>Obtenir des billets!</value>
+  </data>
+  <data name="HomeCity" xml:space="preserve">
+    <value>FRHome City</value>
+  </data>
+  <data name="Hotel" xml:space="preserve">
+    <value>Hôtel</value>
+  </data>
+  <data name="HotelDesc" xml:space="preserve">
+    <value>Hôtel:</value>
+  </data>
+  <data name="HotelHoverText" xml:space="preserve">
+    <value>Hôtel</value>
+  </data>
+  <data name="HotelHoverTextDetails" xml:space="preserve">
+    <value>Hôtel: {0}</value>
+  </data>
+  <data name="HotelName" xml:space="preserve">
+    <value>Nom de l'hôtel:</value>
+  </data>
+  <data name="HotelReservation" xml:space="preserve">
+    <value>Réservations d'Hôtel</value>
+  </data>
+  <data name="House" xml:space="preserve">
+    <value>Maison</value>
+  </data>
+  <data name="HouseEdit" xml:space="preserve">
+    <value>Maison:</value>
+  </data>
+  <data name="HouseHoverText" xml:space="preserve">
+    <value>Maison</value>
+  </data>
+  <data name="HouseHoverTextDetails" xml:space="preserve">
+    <value>Maison: {0}</value>
+  </data>
+  <data name="ImportTimelinePrompt" xml:space="preserve">
+    <value>Votre ligne de temps contient un voyage qui a été créé pendant que vous n'étiez pas enregistré. 
+Voulez-vous importer ce voyage dans votre compte?</value>
+  </data>
+  <data name="IncorrectEmailPass" xml:space="preserve">
+    <value>Courriel/Mot de passe incorrect</value>
+  </data>
+  <data name="InvalidEmailAddress" xml:space="preserve">
+    <value>Adresse courriel invalide</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Chargement</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Emplacement:</value>
+  </data>
+  <data name="Lodging" xml:space="preserve">
+    <value>Hébergement</value>
+  </data>
+  <data name="LoggedInAs" xml:space="preserve">
+    <value>Compte: </value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Connexion</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Déconnexion</value>
+  </data>
+  <data name="MakeReservation" xml:space="preserve">
+    <value>Faire une réservation!</value>
+  </data>
+  <data name="MeetUp" xml:space="preserve">
+    <value>Rencontre</value>
+  </data>
+  <data name="MeetUpHoverText" xml:space="preserve">
+    <value>Rencontre</value>
+  </data>
+  <data name="MeetUpHoverTextDetails" xml:space="preserve">
+    <value>Rencontre avec {0}</value>
+  </data>
+  <data name="MeetUpWith" xml:space="preserve">
+    <value>Rencontrer</value>
+  </data>
+  <data name="Memories" xml:space="preserve">
+    <value>Souvenirs</value>
+  </data>
+  <data name="MyVacations" xml:space="preserve">
+    <value>Mes Vacances</value>
+  </data>
+  <data name="Nightlife" xml:space="preserve">
+    <value>FRNightlife</value>
+  </data>
+  <data name="NightlifeHoverText" xml:space="preserve">
+    <value>FRNightlife</value>
+  </data>
+  <data name="NightlifeHoverTextDetails" xml:space="preserve">
+    <value>FRNightlife: {0}</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="NotesHoverText" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="NotesHoverTextDetails" xml:space="preserve">
+    <value>Note: {0}</value>
+  </data>
+  <data name="OtherActivies" xml:space="preserve">
+    <value>Autre...</value>
+  </data>
+  <data name="Outdoor" xml:space="preserve">
+    <value>Activités de plein air</value>
+  </data>
+  <data name="OutdoorHoverText" xml:space="preserve">
+    <value>Activité de plein air</value>
+  </data>
+  <data name="OutdoorHoverTextDetails" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Mot de passe</value>
+  </data>
+  <data name="PasswordReentryMismatch" xml:space="preserve">
+    <value>Le mot de passe ne correspond à aucun compte</value>
+  </data>
+  <data name="PasswordTooShort" xml:space="preserve">
+    <value>Mot de passe trop court...</value>
+  </data>
+  <data name="PasswordVerify" xml:space="preserve">
+    <value>Confirmer le mot de passe</value>
+  </data>
+  <data name="Photos" xml:space="preserve">
+    <value>Photos</value>
+  </data>
+  <data name="PhotosHoverText" xml:space="preserve">
+    <value>Photos</value>
+  </data>
+  <data name="PhotosHoverTextDetails" xml:space="preserve">
+    <value>Photos de {0}</value>
+  </data>
+  <data name="Privacy" xml:space="preserve">
+    <value>Confidentialité</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Restaurant" xml:space="preserve">
+    <value>Restaurant</value>
+  </data>
+  <data name="RestaurantEdit" xml:space="preserve">
+    <value>Restaurant:</value>
+  </data>
+  <data name="RestaurantHoverText" xml:space="preserve">
+    <value>Réservation de restaurant</value>
+  </data>
+  <data name="RestaurantHoverTextDetails" xml:space="preserve">
+    <value>Restaurant: {0}</value>
+  </data>
+  <data name="RestaurantReservation" xml:space="preserve">
+    <value>Réservations de restaurant</value>
+  </data>
+  <data name="RoadTrip" xml:space="preserve">
+    <value>Parcours</value>
+  </data>
+  <data name="Shopping" xml:space="preserve">
+    <value>Magasinage</value>
+  </data>
+  <data name="ShoppingHoverText" xml:space="preserve">
+    <value>Magasinage</value>
+  </data>
+  <data name="ShoppingHoverTextDetails" xml:space="preserve">
+    <value>Magasinage: {0}</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Spectacle</value>
+  </data>
+  <data name="ShowHoverText" xml:space="preserve">
+    <value>Spectacle</value>
+  </data>
+  <data name="ShowHoverTextDetails" xml:space="preserve">
+    <value>Spectacle: {0}</value>
+  </data>
+  <data name="Sightseeing" xml:space="preserve">
+    <value>Excursion</value>
+  </data>
+  <data name="SightseeingHoverText" xml:space="preserve">
+    <value>Excursion</value>
+  </data>
+  <data name="SightseeingHoverTextDetails" xml:space="preserve">
+    <value>Excursion: {0}</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>Inscription</value>
+  </data>
+  <data name="SportingEvent" xml:space="preserve">
+    <value>FRSporting Event</value>
+  </data>
+  <data name="SportingEventHoverText" xml:space="preserve">
+    <value>FRSporting Event</value>
+  </data>
+  <data name="SportingEventHoverTextDetails" xml:space="preserve">
+    <value>FRSporting Event: {0}</value>
+  </data>
+  <data name="Suggestion" xml:space="preserve">
+    <value>Suggestion</value>
+  </data>
+  <data name="SuggestionsHoverText" xml:space="preserve">
+    <value>Suggestions</value>
+  </data>
+  <data name="SuggestionsHoverTextDetails" xml:space="preserve">
+    <value>Suggestions: {0}</value>
+  </data>
+  <data name="Today" xml:space="preserve">
+    <value>Aujourd'hui</value>
+  </data>
+  <data name="Bus" xml:space="preserve">
+    <value>FRBus</value>
+  </data>
+  <data name="BusHoverText" xml:space="preserve">
+    <value>FRBus</value>
+  </data>
+  <data name="BusHoverTextDetails" xml:space="preserve">
+    <value>FRBus to {0}</value>
+  </data>
+  <data name="Train" xml:space="preserve">
+    <value>FRTrain</value>
+  </data>
+  <data name="TrainHoverText" xml:space="preserve">
+    <value>FRTrain</value>
+  </data>
+  <data name="TrainHoverTextDetails" xml:space="preserve">
+    <value>FRTrain to {0}</value>
+  </data>
+  <data name="Transportation" xml:space="preserve">
+    <value>Transport</value>
+  </data>
+  <data name="UploadPhotos" xml:space="preserve">
+    <value>Ajouter des photos!</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Nom d'utilisateur</value>
+  </data>
+  <data name="VacationTitle" xml:space="preserve">
+    <value>NOM DE VOYAGE: </value>
+  </data>
+  <data name="ViewRoute" xml:space="preserve">
+    <value>Voir l'itinéaire à l'aide de Google</value>
+  </data>
+  <data name="Where" xml:space="preserve">
+    <value>Où:</value>
+  </data>
+  <data name="Who" xml:space="preserve">
+    <value>Qui:</value>
+  </data>
+  <data name="InvalidUserName" xml:space="preserve">
+    <value>FRInvalid User Name...</value>
+  </data>
+  <data name="InvalidHomeCity" xml:space="preserve">
+    <value>FRInvalid Home City...</value>
+  </data>
+</root>

@@ -1,0 +1,51 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="NinePlaces.Page"
+	Width="Auto" Height="Auto" 
+	d:DesignWidth="800" d:DesignHeight="600"
+    xmlns:NinePlaces="clr-namespace:NinePlaces"
+    xmlns:NinePlaces_IconDock="clr-namespace:NinePlaces.IconDockControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" Foreground="#FF333333" >
+    <Grid x:Name="PageContainer">
+        <Grid x:Name="PageRoot" MinHeight="550" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MinWidth="500" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!-- the canvas -->
+
+            <TextBlock x:Name="Debug" Canvas.ZIndex="10000" Visibility="Collapsed"></TextBlock>
+            <NinePlaces:Timeline Grid.Row="2" Grid.ColumnSpan="2"  x:Name="Timeline" IsHitTestVisible="True" Width="Auto" Height="Auto" Canvas.Left="0" />
+
+            <!-- the menu and login controls -->
+            <NinePlaces:TitleBar x:Name="TitleBar" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Canvas.ZIndex="4" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="32,0,16,0" />
+            <NinePlaces:LoginSignUp Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Canvas.ZIndex="4" VerticalAlignment="Top" Margin="16,0,32,0" />
+
+            <!-- the icon doc -->
+            <NinePlaces_IconDock:IconDock x:Name="IconDock" Grid.Row="1" Grid.ColumnSpan="2" Canvas.ZIndex="3"/>
+
+            <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="30,0,30,0">
+                <Button x:Name="btnTwentyFourHour"  Margin="8,0,2,0" Click="btnTwentyFourHour_Click" Content="24hr" Style="{StaticResource TitleBarMenuItem}" Foreground="#FF73A9D8" Padding="2,0,2,0" />
+                <Button x:Name="btnTwelveHour" Margin="0,0,12,0" Click="btnTwelveHour_Click" Content="12hr" Style="{StaticResource TitleBarMenuItem}" Foreground="#FF73A9D8" Padding="2,0,2,0"  />
+                <Button x:Name="btnEnglish" Margin="12,0,2,0" Click="btnEnglish_Click" Content="English" Style="{StaticResource TitleBarMenuItem}" Foreground="#FF73A9D8" Padding="2,0,2,0"  />
+                <Button x:Name="btnFrench" Margin="0,0,8,0" Click="btnFrench_Click" Content="Français" Style="{StaticResource TitleBarMenuItem}" Foreground="#FF73A9D8" Padding="2,0,2,0"  />
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="30,0,30,0">
+                <HyperlinkButton Margin="8,0,8,0" Content="Suggestions" NavigateUri="http://nineplaces.uservoice.com" TargetName="Test" />
+                <HyperlinkButton Margin="8,0,8,0" Content="Blog" NavigateUri="http://blog.nineplaces.com"  TargetName="Test" />
+                <HyperlinkButton Margin="8,0,8,0" Content="Facebook" NavigateUri="http://www.facebook.com/pages/NinePlaces/171966246161185"  TargetName="Test" />
+                <HyperlinkButton Margin="8,0,8,0"  Content="Twitter" NavigateUri="http://www.twitter.com/nineplaces"  TargetName="Test" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>   

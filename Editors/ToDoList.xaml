@@ -1,0 +1,43 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="Editors.TodoList"
+	d:DesignWidth="640" d:DesignHeight="480">
+
+	<Grid x:Name="LayoutRoot" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"></RowDefinition>
+			<RowDefinition Height="Auto"></RowDefinition>
+		</Grid.RowDefinitions>
+		<ScrollViewer Grid.Row="0" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="Auto" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" BorderBrush="{x:Null}">
+		<ItemsControl x:Name="List" HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Top"  Width="Auto" ItemsSource="{Binding Path=ListItems}" Background="{x:Null}" BorderBrush="{x:Null}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto" MinWidth="20"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding Checked, Mode=TwoWay}" VerticalAlignment="Center" Background="{x:Null}"></CheckBox>
+                            <TextBox x:Name="ItemTextBox"  Text="{Binding ListEntry, Mode=TwoWay}" Width="400" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontSize="12" FontFamily="Lucida Sans Unicode" BorderThickness="0" VerticalAlignment="Center" FontStretch="SemiExpanded" TextAlignment="Left"></TextBox>
+					    </StackPanel>
+                        <StackPanel Grid.Column="1" Orientation="Horizontal">
+                            <Button Style="{StaticResource CloseButtonStyle}" Foreground="White" FontWeight="Bold" FontSize="13.333" FontFamily="Lucida Sans Unicode" Content="x" Command="{Binding RemoveListItem}">
+                                <Button.RenderTransform>
+                                    <ScaleTransform ScaleX=".5" ScaleY=".5"/>
+                                </Button.RenderTransform>
+                            </Button>
+                                    
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        </ScrollViewer>
+        <Button Style="{StaticResource NinePlacesDefaultButtonStyle}" Foreground="White" FontWeight="Bold" FontSize="13.333" FontFamily="Lucida Sans Unicode" Visibility="Collapsed" Grid.Row="1" x:Name="AddItem" HorizontalAlignment="Right" Margin="20,0,20,0" Content="Add List Item" Width="120" Height="30" ></Button>
+	</Grid>
+</UserControl>
